@@ -66,7 +66,8 @@ services:
       - /root/.docker/config.json:/config.json
     command: watchtower netdata heimdall plexmediaserver smokeping portainer #containers to monitor/notify
     environment:
-      - WATCHTOWER_SCHEDULE=0 19 * * *        #based on system time
+      - TZ=America/Chicago    
+      - WATCHTOWER_SCHEDULE=0 35 * * *        #based on system time
       - WATCHTOWER_MONITOR_ONLY=true          #safer
       - WATCHTOWER_NOTIFICATIONS=email
       - WATCHTOWER_NOTIFICATION_EMAIL_FROM=user@gmail.com
