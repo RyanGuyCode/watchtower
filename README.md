@@ -55,29 +55,7 @@ $ docker run -d \
     -v /var/run/docker.sock:/var/run/docker.sock \
     containrrr/watchtower
 ```
-```
-version: "2"
-services:
-  watchtower:
-    image: containrrr/watchtower
-    container_name: watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /root/.docker/config.json:/config.json
-    command: watchtower netdata heimdall plexmediaserver smokeping portainer #containers to monitor/notify
-    environment:
-      - TZ=America/Chicago    
-      - WATCHTOWER_SCHEDULE=0 35 * * *        #based on system time
-      - WATCHTOWER_MONITOR_ONLY=true          #safer
-      - WATCHTOWER_NOTIFICATIONS=email
-      - WATCHTOWER_NOTIFICATION_EMAIL_FROM=user@gmail.com
-      - WATCHTOWER_NOTIFICATION_EMAIL_TO=user@gmail.com
-      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER=smtp.gmail.com
-      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PORT=587
-      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER=user@gmail.com
-      - WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD=app-specific-pass
-    restart: unless-stopped
-```
+
 ## Documentation
 The full documentation is available at https://containrrr.dev/watchtower.
 
